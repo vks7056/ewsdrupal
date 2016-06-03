@@ -1,0 +1,4 @@
+name = ews Service
+description = Retrieve Ews Service
+package = ews
+core = 7.x

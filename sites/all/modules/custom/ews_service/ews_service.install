@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ * Remember that the easiest way to create the code for hook_schema is with
+ * the @link http://drupal.org/project/schema schema module @endlink
+ *
+ * @see hook_schema()
+ * @ingroup dbtng_example
+ */
+/*function ews_service_schema() {
+
+  $schema['gitdiscern_user_quiz'] = array(
+    'description' => 'Stores user quiz entries for capture persona style.',
+    'fields' => array(
+      'id'  => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique ID.',
+      ),
+      'uid' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Retrieve user uid',
+      ),
+      'quiz_id' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Retrieve quiz id',
+      ),      
+      'type' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Product Category type',
+      ),
+      'quiz_data' => array(
+        'type' => 'text',
+        'size' => 'medium',
+        'description' => 'Store all data of a particular product category.',
+      ),
+      'timestamp' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Time of detail submit by client.',
+      ),
+    ),
+    'primary key' => array('id')
+  );
+  
+  
+  $schema['gitdiscern_user_persona_style'] = array(
+    'description' => 'Stores user persona style based on quiz output.',
+    'fields' => array(
+      'id'  => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique ID.',
+      ),
+      'uid' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Retrieve user uid',
+      ),
+      'quiz_id' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Retrieve quiz id',
+      ),      
+      'major_style' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'User Major Style',
+      ),
+      'minor_style' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'User minor Style',
+      ),      
+      'timestamp' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Time of final result based on user input.',
+      ),
+    ),
+    'primary key' => array('id')
+  );
+
+  return $schema;
+}*/

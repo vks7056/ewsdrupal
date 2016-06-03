@@ -1,5 +1,0 @@
-name = Free example
-description = Demonstrates providing actions that can be associated to triggers.
-package = Example modules
-core = 7.x
-

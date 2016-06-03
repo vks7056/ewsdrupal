@@ -1,0 +1,88 @@
+<?php
+
+/**
+ * Implements of hook_services_resources().
+ */
+function ews_service_services_resources() {
+  $api = array( 
+    'ews-user-detail' => array(
+      'operations' => array(
+        'create' => array(
+          'help' => 'send ews user detail',
+          'callback' => '_ews_user_detail',
+          'access arguments' => array('access content'),
+          'access arguments append' => FALSE,
+          'args' => array(
+            array(
+              'name' => 'data',
+              'type' => 'array',
+              'description' => 'Function to perform',
+              'source' => 'data',
+              'optional' => FALSE,
+            )            
+          ),
+        ),
+      ),
+    ), 
+    'ews-sms' => array(
+      'operations' => array(
+        'create' => array(
+          'help' => 'send ews user sms',
+          'callback' => '_ews_user_send_sms',
+          'access arguments' => array('access content'),
+          'access arguments append' => FALSE,
+          'args' => array(
+            array(
+              'name' => 'data',
+              'type' => 'array',
+              'description' => 'Function to perform',
+              'source' => 'data',
+              'optional' => FALSE,
+            )            
+          ),
+        ),
+      ),
+    ),                
+    
+  );
+  return $api;
+}
+
+
+/**
+ * Callback function for sending user data to Drupal Backend
+ */
+function _ews_user_detail($data) {
+  
+  if(!empty($data['ca']) && !empty($data['mobile'])) {
+	
+	  $detail['current_meter_reading'] = '2555';	
+	  $detail['previous_paid_amount'] = '1050';
+	  $detail['unbilled_amount'] = '550';
+	  $detail['outstanding_amount'] = '2000';	
+	  $detail['unit'] = 'kwh';  
+		  
+	  $detail['meessage'] = "Successfull";   
+	  return $detail;
+  }
+  else {
+	  $detail['meessage'] = "Please send valid data.";   
+	  return $detail;	  
+  }	  
+}
+
+/**
+ * Callback function for sending sms tp ems user
+ */
+function _ews_user_send_sms($data) {
+  
+  if(!empty($data['mobile'])) {
+		  
+	  $detail['meessage'] = "Sms sent succesfully";   
+	  return $detail;
+  }
+  else {
+	  $detail['meessage'] = "Please send valid mobile number.";   
+	  return $detail;	  
+  }	  
+}
