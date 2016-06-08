@@ -56,7 +56,8 @@ function _ews_user_detail($data) {
   
   if(!empty($data['ca']) && !empty($data['mobile'])) {
 	
-	  $detail['current_meter_reading'] = '2555';	
+	  $detail['current_meter_reading'] = '2555';
+	  $detail['latest_amount'] = '1550';	
 	  $detail['previous_paid_amount'] = '1050';
 	  $detail['unbilled_amount'] = '550';
 	  $detail['outstanding_amount'] = '2000';	
