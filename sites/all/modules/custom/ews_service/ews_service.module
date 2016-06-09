@@ -1,5 +1,7 @@
 <?php
 
+require 'textlocal.class.php';
+
 /**
  * Implements of hook_services_resources().
  */
@@ -78,6 +80,11 @@ function _ews_user_detail($data) {
 function _ews_user_send_sms($data) {
   
   if(!empty($data['mobile'])) {
+	  
+	  $text = "Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you."
+	  
+	  $textlocal=new textlocal('manishjain002@gmail.com','96eb8d9470a424fe8fe1f93260ead3f6469ed59b');
+      $textlocal->sendSms($data['mobile'],$text);
 		  
 	  $detail['meessage'] = "Sms sent succesfully";   
 	  return $detail;
