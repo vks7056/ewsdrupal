@@ -59,6 +59,7 @@ function _ews_user_detail($data) {
   if(!empty($data['ca']) && !empty($data['mobile'])) {
 	
 	  $detail['current_time'] = date('F/j/Y, g:i a',REQUEST_TIME);
+	  $detail['bill_cycle'] = (31 - date('d',REQUEST_TIME));
 	  $detail['latest_amount'] = '1550';
 	  $detail['current_month'] = date('F Y',REQUEST_TIME);	
 	  $detail['previous_paid_amount'] = '1050';
