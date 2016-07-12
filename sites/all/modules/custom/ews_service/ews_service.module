@@ -58,15 +58,29 @@ function _ews_user_detail($data) {
   
   if(!empty($data['ca']) && !empty($data['mobile'])) {
 	
-	  $detail['current_meter_reading'] = '2555';
-	  $detail['latest_amount'] = '1550';	
+	  $detail['latest_amount'] = '1550';
+	  $detail['current_month'] = date('F Y',REQUEST_TIME);	
 	  $detail['previous_paid_amount'] = '1050';
+	  $detail['previous_month'] = date("F Y", strtotime("-1 months"));
 	  $detail['unbilled_amount'] = '550';
-	  $detail['outstanding_amount'] = '2000';	
+	  $detail['outstanding_amount'] = '2100';	
 	  $detail['unit'] = 'kwh';  
 		  
 	  $detail['meessage'] = "Successfull";   
+	  
+	  
+	  // Fetch latest entry from influxDb
+	  $url = "http://161.202.163.86:8086/query?db=mydb&q=select%20last(kwh)%20from%20PWR_00000215";
+	  $options = array();
+	  $options['headers'] = array('Content-Type'=>'application/json');
+	  $options['data'] = '';
+
+	  $fetch_data = drupal_http_request($url,$options);
+	  $fetch_data = drupal_json_decode($fetch_data->data);
+	  $current_reading = $fetch_data['results'][0]['series'][0]['values'][0][1];
+	  $detail['current_meter_reading'] = $current_reading;
 	  return $detail;
+	  
   }
   else {
 	  $detail['meessage'] = "Please send valid data.";   
