@@ -65,7 +65,7 @@ function _ews_user_detail($data) {
 	  $detail['previous_paid_amount'] = '1050';
 	  $detail['previous_month'] = date("F Y", strtotime("-1 months"));
 	  $detail['unbilled_amount'] = '550';
-	  $detail['outstanding_amount'] = '1500';	
+	  $detail['outstanding_amount'] = '1550';	
 	  $detail['unit'] = 'kwh';  
 		  
 	  $detail['meessage'] = "Successfull";   
