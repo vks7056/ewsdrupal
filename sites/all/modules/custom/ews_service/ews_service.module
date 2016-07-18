@@ -72,7 +72,16 @@ function _ews_user_detail($data) {
 	  
 	  
 	  // Fetch latest entry from influxDb
-	  $url = "http://161.202.163.86:8086/query?db=mydb&q=select%20last(kwh)%20from%20PWR_00000215";
+	  if($data['ca'] == '100041915') {
+		  $url = "http://161.202.163.86:8086/query?db=mydb&q=select%20last(kwh)%20from%20PWR_00000215";
+	  }
+	  elseif($data['ca'] == '100041920') {
+		  $url = "http://161.202.163.86:8086/query?db=mydb&q=select%20last(kwh)%20from%20PWR_00000211";
+	  }
+	  else {
+		  $url = "http://161.202.163.86:8086/query?db=mydb&q=select%20last(kwh)%20from%20PWR_00000215";
+	  }	  	  	  
+	  
 	  $options = array();
 	  $options['headers'] = array('Content-Type'=>'application/json');
 	  $options['data'] = '';
